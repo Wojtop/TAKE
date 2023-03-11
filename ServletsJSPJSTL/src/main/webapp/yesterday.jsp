@@ -12,6 +12,12 @@
                 background: ${bean.backgroundColor};
                 color: ${bean.foregroundColor}
             }
+            <c:if test="${!borderBean.isBorders()}">
+                table, tr, td, th{
+                    border: none !important;
+                }
+                </c:if>
+            
         </style>
     </head>
     <body>

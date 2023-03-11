@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 import ai.beans.ColorBean;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -26,11 +27,15 @@ public class ControllerServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
         ColorBean myBean = new ColorBean();
+        
         BordersBean borderBean = new BordersBean();
+        borderBean.setBorders(Boolean.parseBoolean(request.getParameter("borders")));
+        
         myBean.setForegroundColor(request.getParameter("foreColor"));
         myBean.setBackgroundColor(request.getParameter("backColor"));
         
         request.setAttribute("bean", myBean);
+        request.setAttribute("borderBean", borderBean );
 
         ArrayList members = new ArrayList();
         members.add("John Lennon");
